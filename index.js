@@ -7,7 +7,7 @@ const { Fibonacci, Prime, LCM, HCF } = require('./lib/operations');
 const app = express();
 const fetch = global.fetch || require('node-fetch');
 
-const CHITKARA_EMAIL = process.env.CHITKARA_EMAIL || 'student@chitkara.edu.in';
+const CHITKARA_EMAIL = process.env.CHITKARA_EMAIL || 'hitesh0607.be23@chitkara.edu.in';
 const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
 
 app.use(express.json({ limit: '100kb' }));
