@@ -1,36 +1,151 @@
-# Chitkara BFHL API
+🚀 Chitkara BFHL REST API
 
-Simple Node.js (Express) implementation for the assignment.
+Production-ready REST API built with Node.js and Express for the BFHL assignment.
+Implements structured responses, validation, security middleware, and external AI integration.
 
-Run locally
+🔗 Live API
+https://YOUR-RENDER-URL.onrender.com
 
-1. Install dependencies
+✅ Features
 
-```bash
+Fibonacci series generation
+
+Prime number filtering
+
+LCM & HCF computation
+
+AI-powered single-word responses (Google Gemini)
+
+Health check endpoint
+
+Robust validation & error handling
+
+Rate limiting and security headers
+
+🛠 Tech Stack
+
+Node.js
+
+Express.js
+
+Google Gemini API
+
+Helmet
+
+Express Rate Limit
+
+📌 API Endpoints
+✅ Health Check
+GET /health
+
+
+Response
+
+{
+  "is_success": true,
+  "official_email": "student@chitkara.edu.in"
+}
+
+✅ Main Endpoint
+POST /bfhl
+
+
+Send exactly one key per request.
+
+Fibonacci
+{
+  "fibonacci": 7
+}
+
+Prime Numbers
+{
+  "prime": [2,4,7,9,11]
+}
+
+LCM
+{
+  "lcm": [12,18,24]
+}
+
+HCF
+{
+  "hcf": [24,36,60]
+}
+
+AI Response
+{
+  "AI": "What is the capital of Maharashtra?"
+}
+
+
+Output
+
+{
+  "is_success": true,
+  "official_email": "student@chitkara.edu.in",
+  "data": "Mumbai"
+}
+
+⚙️ Run Locally
+1️⃣ Install dependencies
 npm install
+
+2️⃣ Create .env
+
+Copy the example:
+
 cp .env.example .env
-# edit .env to set CHITKARA_EMAIL
-# optionally set GEMINIAI_API_KEY and GEMINI_API_URL to enable AI
-```
 
-2. Start server
 
-```bash
+Add:
+
+CHITKARA_EMAIL=student@chitkara.edu.in
+PORT=8080
+GEMINI_API_KEY=YOUR_API_KEY
+
+3️⃣ Start Server
 npm start
-```
 
-Tests
 
-```bash
-npm test
-```
+Server runs at:
 
-AI provider
+http://localhost:8080
 
-- To enable AI responses, set `GEMINIAI_API_KEY` and `GEMINI_API_URL` in your `.env` file. The server will POST a prompt to the configured URL and expect JSON in return. The implementation attempts to parse common response shapes (OpenAI-style `choices`, Google-style `output`) and returns the first token as the answer.
+🧪 Testing
 
-Notes
+Use Postman 
 
-- The JS implementation follows the required response structure and will return 503 for AI requests when Gemini is not configured.
-- Responses follow the required structure: {"is_success": true, "official_email": "YOUR CHITKARA EMAIL", "data": ...}
-# bajajltest
+🔐 Environment Variables
+Variable	Description
+CHITKARA_EMAIL	Official email for responses
+PORT	Server port
+GEMINI_API_KEY	Google Gemini API key
+
+⚠️ Never commit .env.
+
+🚀 Deployment
+
+Hosted on Render with public accessibility as required.
+
+✅ Response Format
+
+All successful responses:
+
+{
+  "is_success": true,
+  "official_email": "YOUR_EMAIL",
+  "data": ...
+}
+
+
+Errors return appropriate HTTP status codes with:
+
+{
+  "is_success": false,
+  "error": "message"
+}
+
+👨‍💻 Author
+
+Hitesh Thakur
+Chitkara University — Class of 2027
