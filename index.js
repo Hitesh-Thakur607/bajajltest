@@ -125,8 +125,9 @@ app.post('/bfhl', async (req, res) => {
       data?.candidates?.[0]?.content?.parts?.[0]?.text || "";
 
     
+answer = answer.replace(/\n/g, " ").trim();
 
-    return res.status(200).json(jsonSuccess(resp));
+    return res.status(200).json(jsonSuccess(answer));
 
       } catch (err) {
         console.error(err);
