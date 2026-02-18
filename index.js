@@ -124,7 +124,7 @@ app.post('/bfhl', async (req, res) => {
     let answer =
       data?.candidates?.[0]?.content?.parts?.[0]?.text || "";
 
-    answer = answer.trim().split(/\s+/)[0];
+    
 
     return res.status(200).json(jsonSuccess(answer));
 
