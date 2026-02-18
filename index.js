@@ -105,7 +105,7 @@ app.post('/bfhl', async (req, res) => {
           contents: [
             {
               parts: [
-                { text: `Reply with ONLY ONE WORD.\nQuestion: ${question}` }
+                { text: `Question: ${question}` }
               ]
             }
           ]
